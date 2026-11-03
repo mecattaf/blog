@@ -9,8 +9,6 @@
   --accent: #445258;
   --accent-soft: #dfd6ca;
   --code: #f4efe6;
-  --tile: var(--tile-light);
-  --tile-fg: var(--tile-fg-light);
   color-scheme: light;
 }
 
@@ -25,8 +23,6 @@
     --accent: #70b8ff;
     --accent-soft: #1f3a55;
     --code: #0c0e11;
-    --tile: var(--tile-dark);
-    --tile-fg: var(--tile-fg-dark);
     color-scheme: dark;
   }
 }
@@ -41,8 +37,6 @@
   --accent: #70b8ff;
   --accent-soft: #1f3a55;
   --code: #0c0e11;
-  --tile: var(--tile-dark);
-  --tile-fg: var(--tile-fg-dark);
   color-scheme: dark;
 }
 
@@ -166,8 +160,8 @@ h1 {
   align-items: center;
   justify-content: center;
   flex: none;
-  background: var(--tile);
-  color: var(--tile-fg);
+  background: var(--tile-light);
+  color: var(--tile-fg-light);
   border-radius: 12px;
 }
 
@@ -236,9 +230,9 @@ h1 {
   gap: 0.35rem;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid var(--tile);
-  background: var(--tile);
-  color: var(--tile-fg);
+  border: 1px solid var(--tile-light);
+  background: var(--tile-light);
+  color: var(--tile-fg-light);
   font-size: 0.86rem;
   font-weight: 600;
   text-decoration: none;
@@ -342,4 +336,23 @@ footer {
 
 footer a {
   color: inherit;
+}
+
+/* The per-card --tile-* variables are set inline on each card, so the
+ * colour has to be read where it is used: a :root alias would resolve
+ * to nothing. Dark variants follow the site's theme mechanism. */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-theme) .tile,
+  :root:not(.light-theme) .key-btn {
+    background: var(--tile-dark, var(--tile-light));
+    color: var(--tile-fg-dark, var(--tile-fg-light));
+    border-color: var(--tile-dark, var(--tile-light));
+  }
+}
+
+:root.dark-theme .tile,
+:root.dark-theme .key-btn {
+  background: var(--tile-dark, var(--tile-light));
+  color: var(--tile-fg-dark, var(--tile-fg-light));
+  border-color: var(--tile-dark, var(--tile-light));
 }
