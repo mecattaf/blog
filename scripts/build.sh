@@ -22,6 +22,13 @@ cp "$repo_root/static/palette.css" "$dist_dir/palette.css"
 cp "$repo_root/static/site.css" "$dist_dir/site.css"
 cp "$repo_root/static/_redirects" "$dist_dir/_redirects"
 
+# Plain-text copies of each page, for pasting into or fetching by LLMs.
+for md in "$repo_root"/content/*.md; do
+  name=$(basename "$md" .md)
+  case "$name" in toc|_template) continue ;; esac
+  cp "$md" "$dist_dir/$name.txt"
+done
+
 while IFS= read -r -d '' page; do
   sed -i "/mmdoc[^']*\\.css/a\\    <link rel='stylesheet' href='palette.css'>" "$page"
   sed -i "/palette\\.css/a\\    <link rel='stylesheet' href='site.css'>" "$page"
