@@ -25,7 +25,7 @@ cp "$repo_root/static/_redirects" "$dist_dir/_redirects"
 # Plain-text copies of each page, for pasting into or fetching by LLMs.
 for md in "$repo_root"/content/*.md; do
   name=$(basename "$md" .md)
-  case "$name" in toc|_template) continue ;; esac
+  case "$name" in toc|_template|hello-world|enoki-postmortem) continue ;; esac
   cp "$md" "$dist_dir/$name.txt"
 done
 
