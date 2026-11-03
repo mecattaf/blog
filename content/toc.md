@@ -2,6 +2,7 @@
 
 * [](#hello-world)
 * [](#enoki-postmortem)
+* [](#algo-memory)
 
 [thomas@mecattaf.dev](mailto:thomas@mecattaf.dev)
 
