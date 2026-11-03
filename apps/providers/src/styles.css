@@ -1,0 +1,345 @@
+/* Tokens mirror static/palette.css so the page sits inside the site. */
+:root {
+  --background: #efebe3;
+  --foreground: #201b17;
+  --surface: #fbf8f2;
+  --surface-muted: #f6f1e8;
+  --border: #ddd5c8;
+  --muted: #6f675e;
+  --accent: #445258;
+  --accent-soft: #dfd6ca;
+  --code: #f4efe6;
+  --tile: var(--tile-light);
+  --tile-fg: var(--tile-fg-light);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-theme) {
+    --background: #000000;
+    --foreground: #eaecf0;
+    --surface: #060708;
+    --surface-muted: #0e1013;
+    --border: #20242b;
+    --muted: #818898;
+    --accent: #70b8ff;
+    --accent-soft: #1f3a55;
+    --code: #0c0e11;
+    --tile: var(--tile-dark);
+    --tile-fg: var(--tile-fg-dark);
+    color-scheme: dark;
+  }
+}
+
+:root.dark-theme {
+  --background: #000000;
+  --foreground: #eaecf0;
+  --surface: #060708;
+  --surface-muted: #0e1013;
+  --border: #20242b;
+  --muted: #818898;
+  --accent: #70b8ff;
+  --accent-soft: #1f3a55;
+  --code: #0c0e11;
+  --tile: var(--tile-dark);
+  --tile-fg: var(--tile-fg-dark);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  background: var(--code);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+.top {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 0;
+}
+
+.home {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 4.5vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.date {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lede {
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.grid-title {
+  margin: 3.5rem 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+
+/* Cards: logo tile left, text, action right (Claude connectors grid). */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+@media (min-width: 740px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "tile body"
+    "tile btn";
+  column-gap: 1rem;
+  row-gap: 0.75rem;
+  align-items: start;
+  padding: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.card-aside {
+  background: var(--surface-muted);
+}
+
+.tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  background: var(--tile);
+  color: var(--tile-fg);
+  border-radius: 12px;
+}
+
+.tile svg {
+  width: 56%;
+  height: 56%;
+}
+
+.tile-card {
+  grid-area: tile;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.tile-head {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+}
+
+.tile-head svg {
+  width: 60%;
+  height: 60%;
+}
+
+.card-body {
+  grid-area: body;
+  min-width: 0;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card h3 a:hover {
+  color: var(--accent);
+}
+
+.tagline {
+  margin: 0.15rem 0 0.4rem;
+  color: var(--muted);
+}
+
+.free {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.label {
+  color: var(--muted);
+}
+
+.key-btn {
+  grid-area: btn;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--tile);
+  background: var(--tile);
+  color: var(--tile-fg);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.key-btn:hover {
+  filter: brightness(1.08);
+}
+
+.key-none {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+/* Per-provider sections. */
+.provider {
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.25rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  scroll-margin-top: 1rem;
+}
+
+.provider h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.provider dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+@media (min-width: 560px) {
+  .provider dl {
+    grid-template-columns: 7.5rem 1fr;
+  }
+}
+
+.provider dt {
+  color: var(--muted);
+  font-size: 0.86rem;
+  padding-top: 0.2rem;
+}
+
+.provider dd {
+  margin: 0 0 0.6rem;
+  min-width: 0;
+}
+
+.provider dd ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.provider dd li {
+  margin: 0.15rem 0;
+}
+
+.models {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.gotcha {
+  margin: 0.75rem 0 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 4px solid var(--tile);
+  background: var(--surface-muted);
+  border-radius: 0 8px 8px 0;
+}
+
+.note,
+.muted {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.closing {
+  margin-top: 3rem;
+  font-size: 1.05rem;
+}
+
+footer {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+footer a {
+  color: inherit;
+}

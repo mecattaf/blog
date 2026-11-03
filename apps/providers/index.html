@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Free compute for agents - mecattaf.dev</title>
+    <meta name="description" content="Twelve API providers with a free tier: where to make the key, the base URL, the header, the odd settings and the one thing that bit me." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Follow the manual theme toggle of the mmdoc pages (same key, same origin);
+      // without a stored choice the CSS falls back to prefers-color-scheme.
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.classList.add(t + "-theme");
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

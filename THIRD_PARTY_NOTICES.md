@@ -47,3 +47,39 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## LobeHub Icons (static/providers)
+
+The provider marks on the `/providers/` page (Gemini, OpenCode, Groq,
+Cerebras, Mistral, Cohere, NVIDIA, Cloudflare, Hugging Face, Vercel, xAI,
+OpenRouter, Claude and OpenAI) are monochrome SVGs copied unmodified from the
+`@lobehub/icons-static-svg` npm package, version 1.102.0, part of
+[LobeHub Icons](https://github.com/lobehub/lobe-icons). The sources live in
+`apps/providers/src/logos/` and are inlined into the built bundle. The MIT
+licence below covers the icon set's packaging and code; the logos and brand
+names remain the property of their respective owners. The generic chip glyph
+(`local.svg`) was drawn for this site and is released under CC0.
+
+```
+MIT License
+
+Copyright (c) 2023 LobeHub
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

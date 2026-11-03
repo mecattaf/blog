@@ -34,4 +34,9 @@ while IFS= read -r -d '' page; do
   sed -i "/palette\\.css/a\\    <link rel='stylesheet' href='site.css'>" "$page"
 done < <(find "$dist_dir" -type f -name index.html -print0)
 
+# Prebuilt one-off React page (source in apps/providers, built output committed
+# in static/providers because Pages runs only this script). Copied after the
+# CSS injection loop so the self-contained page is left untouched.
+cp -R "$repo_root/static/providers" "$dist_dir/providers"
+
 printf 'mmdoc site -> %s\n' "$dist_dir"
